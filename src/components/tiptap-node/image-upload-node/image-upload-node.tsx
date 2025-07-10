@@ -363,7 +363,9 @@ export const ImageUploadNode: React.FC<NodeViewProps> = (props) => {
       props.editor
         .chain()
         .focus()
+        // @ts-expect-error - pos is available in editor context
         .deleteRange({ from: pos, to: pos + 1 })
+        // @ts-expect-error - pos is available in editor context
         .insertContentAt(pos, [
           {
             type: "image",

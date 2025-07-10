@@ -14,10 +14,12 @@ export const Link = TiptapLink.extend({
     ]
   },
 
-  addProseMirrorPlugins() {
+  addProseMirrorPlugins(): Plugin[] {
+    // @ts-expect-error - editor is available in extension context
     const { editor } = this
 
     return [
+      // @ts-expect-error - parent is available in extension context
       ...(this.parent?.() || []),
       new Plugin({
         props: {
